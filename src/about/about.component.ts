@@ -9,12 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class AboutComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
-  displayData: any;
+  // displayData: any;
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(({ data }) => {
       console.log(data);
-      this.displayData = data;
+      // this.displayData = data;
     });
   }
 }

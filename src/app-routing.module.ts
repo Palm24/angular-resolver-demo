@@ -10,11 +10,11 @@ import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
-export const heroResolver: ResolveFn<any> = (
+export const dataResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  return route.paramMap.get('id')!;
+  return route.paramMap.get('data')!;
 };
 
 const routes: Routes = [
@@ -25,11 +25,12 @@ const routes: Routes = [
       {
         path: 'Home',
         component: HomeComponent,
+        resolve: { data: dataResolver },
       },
       {
-        path: 'About/:id',
+        path: 'About/:data',
         component: AboutComponent,
-        resolve: { data: heroResolver },
+        resolve: { data: dataResolver },
       },
     ],
   },
