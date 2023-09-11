@@ -7,12 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-
   constructor(private activatedRoute: ActivatedRoute) {}
 
+  displayData: any;
+
   ngOnInit() {
-    this.activatedRoute.data.subscribe((data) => {
+    this.activatedRoute.data.subscribe(({ data }) => {
       console.log(data);
+      this.displayData = data;
     });
   }
 }

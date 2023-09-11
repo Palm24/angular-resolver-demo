@@ -1,8 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  Routes,
+  RouterModule,
+  ResolveFn,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+
+export const heroResolver: ResolveFn<any> = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+) => {
+  return route.paramMap.get('id')!;
+};
 
 const routes: Routes = [
   {
@@ -16,6 +29,7 @@ const routes: Routes = [
       {
         path: 'About/:id',
         component: AboutComponent,
+        resolve: { data: heroResolver },
       },
     ],
   },
