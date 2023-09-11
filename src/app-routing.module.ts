@@ -25,7 +25,7 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'Home',
+        path: 'Home', // /Home/?id=?????
         component: HomeComponent,
         resolve: { data: dataResolver },
       },
