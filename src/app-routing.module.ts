@@ -14,8 +14,6 @@ export const dataResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  // if paramMap = only one data
-  // if queryParamMap = all data
   var data = route.queryParamMap.getAll('id');
   console.log('Router: ' + data);
   return data;
@@ -27,12 +25,12 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'Home/:data',
+        path: 'Home',
         component: HomeComponent,
         resolve: { data: dataResolver },
       },
       {
-        path: 'About/:data',
+        path: 'About',
         component: AboutComponent,
         resolve: { data: dataResolver },
       },
