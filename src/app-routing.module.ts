@@ -14,7 +14,11 @@ export const dataResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ) => {
-  return route.paramMap.get('data')!;
+  // if paramMap = only one data
+  // if queryParamMap = all data
+  var data = route.queryParamMap.getAll('id');
+  console.log('Router: ' + data);
+  return data;
 };
 
 const routes: Routes = [
@@ -34,14 +38,6 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: '',
-  //   component: HomeComponent,
-  // },
-  // {
-  //   path: 'About',
-  //   component: AboutComponent,
-  // },
 ];
 
 @NgModule({
