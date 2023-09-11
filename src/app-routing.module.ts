@@ -23,7 +23,7 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       {
-        path: 'Home',
+        path: 'Home/:data',
         component: HomeComponent,
         resolve: { data: dataResolver },
       },
