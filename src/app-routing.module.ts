@@ -6,7 +6,7 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
-    path: '/',
+    path: '',
     component: AppComponent,
     children: [
       {
@@ -19,6 +19,14 @@ const routes: Routes = [
       },
     ],
   },
+  // {
+  //   path: '',
+  //   component: HomeComponent,
+  // },
+  // {
+  //   path: 'About',
+  //   component: AboutComponent,
+  // },
 ];
 
 @NgModule({
